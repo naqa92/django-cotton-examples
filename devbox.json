@@ -1,0 +1,19 @@
+{
+  "packages": [
+    "tailwindcss_4@4.1.18",
+    "concurrently"
+  ],
+  "shell": {
+    "init_hook": [
+      "pnpm install"
+    ],
+    "scripts": {
+      "tw:watch": "tailwindcss -i ./theme/static/css/input.css -o ./theme/static/css/style.css --watch",
+      "django": "uv run python manage.py runserver",
+      "livereload": "uv run python manage.py livereload",
+      "dev:all": "concurrently \"devbox run tw:watch\" \"uv run python manage.py livereload --host=127.0.0.1 --port=35729\" \"uv run python manage.py runserver\"",
+      "migrate": "uv run python manage.py migrate",
+      "makemigrations": "uv run python manage.py makemigrations"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<div class="card bg-base-100 w-96 shadow-sm">
+    {% if image %}
+      <figure>
+          <img
+              src="{{ image }}"
+              alt="{{ title }}" />
+      </figure>
+    {% endif %}
+    <div class="card-body">
+      <h2 class="card-title">{{ title }}</h2>
+      <p>{{ paragraph }}</p>
+      <div class="card-actions justify-end">
+        {{ slot }}
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Page de test Django Components</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-base-200 to-base-100 p-8">
+
+    <div class="container mx-auto">
+        <h1 class="text-4xl font-bold text-center mb-8 text-primary">{{ title }}</h1>
+
+        <!-- Section Composants Boutons -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-6 text-secondary">Exemples de Boutons</h2>
+            <div class="flex flex-wrap gap-4">
+                <c-button>Bouton par défaut</c-button>
+                <c-button type="btn-primary">Bouton Principal</c-button>
+                <c-button type="btn-secondary">Bouton Secondaire</c-button>
+                <c-button type="btn-accent">Bouton Accent</c-button>
+                <c-button type="btn-error">Bouton Erreur</c-button>
+                <c-button type="btn-warning">Bouton Avertissement</c-button>
+                <c-button type="btn-success">Bouton Succès</c-button>
+                <c-button type="btn-outline">Bouton Contour</c-button>
+            </div>
+        </section>
+
+        <!-- Section Composant Card -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-6 text-secondary">Exemple de Carte</h2>
+            <div class="flex flex-wrap gap-6 justify-center">
+                <c-card title="Composant Django Cotton" paragraph="{{ paragraph }}"
+                    image="https://placehold.co/600x400/3b82f6/ffffff?text=Django+Cotton">
+                    <c-button type="btn-primary">En savoir plus</c-button>
+                    <c-button type="btn-outline">Documentation</c-button>
+                </c-card>
+
+                <c-card title="Carte sans image"
+                    paragraph="Cette carte démontre l'utilisation sans image. {{ paragraph|truncatewords:15 }}">
+                    <c-button type="btn-secondary">Action</c-button>
+                </c-card>
+            </div>
+        </section>
+
+        <!-- Section Composant Select -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-6 text-secondary">Exemples de Sélecteurs</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div>
+                    <label class="label">
+                        <span class="label-text">Domaine de développement :</span>
+                    </label>
+                    <c-select name="tech-select" id="tech-select" :options="options" color="select-primary" />
+                </div>
+
+                <div>
+                    <label class="label">
+                        <span class="label-text">Type de contact :</span>
+                    </label>
+                    <c-select name="contact-select" id="contact-select" :options="contact_options"
+                        color="select-secondary" />
+                </div>
+
+                <div>
+                    <label class="label">
+                        <span class="label-text">Niveau de priorité :</span>
+                    </label>
+                    <c-select name="priority-select" id="priority-select" :options="priority_options"
+                        color="select-accent" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Styles DaisyUI Select -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-6 text-secondary">Styles DaisyUI pour Select</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Couleurs -->
+                <div class="card bg-base-100 shadow-sm p-4">
+                    <h3 class="font-semibold mb-4">Couleurs</h3>
+                    <div class="flex flex-col gap-3">
+                        <c-select name="demo-primary" id="demo-primary" :options="contact_options"
+                            color="select-primary" size="select-sm" />
+                        <c-select name="demo-secondary" id="demo-secondary" :options="contact_options"
+                            color="select-secondary" size="select-sm" />
+                        <c-select name="demo-accent" id="demo-accent" :options="contact_options" color="select-accent"
+                            size="select-sm" />
+                    </div>
+                </div>
+
+                <!-- Tailles -->
+                <div class="card bg-base-100 shadow-sm p-4">
+                    <h3 class="font-semibold mb-4">Tailles</h3>
+                    <div class="flex flex-col gap-3 items-start">
+                        <c-select name="demo-xs" id="demo-xs" :options="priority_options" size="select-xs"
+                            color="select-info" />
+                        <c-select name="demo-sm" id="demo-sm" :options="priority_options" size="select-sm"
+                            color="select-success" />
+                        <c-select name="demo-md" id="demo-md" :options="priority_options" size="select-md"
+                            color="select-warning" />
+                        <c-select name="demo-lg" id="demo-lg" :options="priority_options" size="select-lg"
+                            color="select-error" />
+                    </div>
+                </div>
+
+                <!-- Styles spéciaux -->
+                <div class="card bg-base-100 shadow-sm p-4">
+                    <h3 class="font-semibold mb-4">Styles spéciaux</h3>
+                    <div class="flex flex-col gap-3">
+                        <div>
+                            <label class="label-text text-xs">Ghost (sans arrière-plan)</label>
+                            <c-select name="demo-ghost" id="demo-ghost" :options="options" style="select-ghost"
+                                size="select-sm" />
+                        </div>
+                        <div>
+                            <label class="label-text text-xs">Avec bordure</label>
+                            <c-select name="demo-bordered" id="demo-bordered" :options="options" style="select-bordered"
+                                color="select-neutral" size="select-sm" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Composants Produits -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-6 text-secondary">Exemples de Produits</h2>
+            <div class="flex flex-wrap gap-6 justify-center">
+                <div>
+                    <h3 class="text-lg font-medium mb-4 text-center">Produit Standard</h3>
+                    <c-product.index />
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-medium mb-4 text-center">Produit Premium</h3>
+                    <c-product.premium />
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Combinaisons -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-6 text-secondary">Combinaisons de Composants</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <c-card title="Formulaire de Contact" paragraph="Remplissez ce formulaire pour nous contacter.">
+                    <div class="flex flex-col gap-2 w-full">
+                        <c-select name="contact-type" id="contact-type" :options="contact_options" size="select-sm"
+                            color="select-info" />
+                        <c-select name="priority-level" id="priority-level" :options="priority_options" size="select-sm"
+                            color="select-warning" />
+                        <div class="flex gap-2">
+                            <c-button type="btn-primary btn-sm">Envoyer</c-button>
+                            <c-button type="btn-outline btn-sm">Annuler</c-button>
+                        </div>
+                    </div>
+                </c-card>
+
+                <c-card title="Actions rapides" paragraph="Diverses actions disponibles sur la plateforme.">
+                    <div class="flex flex-col gap-2 w-full">
+                        <c-button type="btn-success btn-sm">Créer</c-button>
+                        <c-button type="btn-warning btn-sm">Modifier</c-button>
+                        <c-button type="btn-error btn-sm">Supprimer</c-button>
+                    </div>
+                </c-card>
+
+                <c-card title="Navigation" paragraph="Liens vers les différentes sections."
+                    image="https://placehold.co/400x200/10b981/ffffff?text=Navigation">
+                    <div class="flex gap-2">
+                        <c-button type="btn-primary btn-sm">Accueil</c-button>
+                        <c-button type="btn-secondary btn-sm">À propos</c-button>
+                    </div>
+                </c-card>
+            </div>
+        </section>
+
+        <footer class="text-center text-base-content/60 mt-16">
+            <p>Exemples de composants Django Cotton - Documentation disponible sur
+                <a href="https://django-cotton.com/" class="link link-primary" target="_blank">django-cotton.com</a>
+            </p>
+        </footer>
+    </div>
+
+</body>
+
+</html>

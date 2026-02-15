@@ -1,0 +1,17 @@
+<c-vars 
+    size="select-md" 
+    color="" 
+    style="select-bordered" 
+/>
+
+<select 
+    name="{{ name }}" 
+    id="{{ id }}" 
+    class="select {{ style }} {{ color }} {{ size }}"
+>
+    {% for option in options %}
+        <option value="{{ option.value }}"{% if option.value == "" %} disabled selected{% endif %}>
+            {{ option.label }}
+        </option>
+    {% endfor %}
+</select>

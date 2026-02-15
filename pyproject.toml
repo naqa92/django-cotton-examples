@@ -1,0 +1,34 @@
+[project]
+name = "django-cotton-examples"
+version = "0.1.0"
+description = "Un projet Django avec auto-reload et Tailwind CSS intégré"
+requires-python = ">=3.12"
+dependencies = [
+    "django>=6.0",
+    "django-cotton",
+    "django-tailwind",
+    "django-livereload-server",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-django",
+    "black",
+    "ruff",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["djangocomponents", "components", "theme"]
+
+[tool.black]
+line-length = 88
+target-version = ['py312']
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "djangocomponents.settings"
+python_files = ["tests.py", "test_*.py", "*_tests.py"]
