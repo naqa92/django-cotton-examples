@@ -190,9 +190,8 @@ logs/
 tmp/
 temp/
 
-# Static files collected (Django)
+# Static files collected (Django collectstatic)
 staticfiles/
-static/
 
 # Media files (uploads)
 media/
