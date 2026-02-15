@@ -1,4 +1,1 @@
 @import "tailwindcss";
-@plugin "daisyui";
-
-@source inline("{hover:,focus:,}btn-{info,error,neutral}");

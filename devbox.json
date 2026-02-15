@@ -4,9 +4,7 @@
     "concurrently"
   ],
   "shell": {
-    "init_hook": [
-      "pnpm install"
-    ],
+    "init_hook": [],
     "scripts": {
       "tw:watch": "tailwindcss -i ./theme/static/css/input.css -o ./theme/static/css/style.css --watch",
       "django": "uv run python manage.py runserver",

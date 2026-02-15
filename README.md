@@ -2,11 +2,11 @@
 
 Un projet Django avec auto-reload et Tailwind CSS intégré.
 
-## 🚀 Démarrage rapide
+## Démarrage rapide
 
 ### Prérequis
 
-- [Devbox](https://www.jetify.com/devbox/docs/installing_devbox/) - Gère Python, pnpm, Tailwind CSS
+- [Devbox](https://www.jetify.com/devbox/docs/installing_devbox/) - Gère Python et Tailwind CSS
 - Git
 
 ### Installation
@@ -14,7 +14,7 @@ Un projet Django avec auto-reload et Tailwind CSS intégré.
 1. **Installer les dépendances :**
 
    ```bash
-   devbox shell         # Installe automatiquement tailwindcss + daisyui
+   devbox shell         # Installe automatiquement tailwindcss
    uv sync              # Crée .venv et installe les dépendances Python
    source .venv/bin/activate  # Active l'environnement virtuel
    ```
@@ -33,13 +33,13 @@ devbox run dev:all
 
 Cette commande lance automatiquement :
 
-- 🔄 **Livereload** - Rechargement automatique du navigateur
-- 🌐 **Serveur Django** - http://127.0.0.1:8000
-- 🎨 **Tailwind CSS** - Compilation en temps réel
+- **Livereload** - Rechargement automatique du navigateur
+- **Serveur Django** - http://127.0.0.1:8000
+- **Tailwind CSS** - Compilation en temps réel
 
 Le projet sera accessible sur [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
-## 📁 Structure du projet
+## Structure du projet
 
 ```
 django-cotton-examples/
@@ -66,13 +66,12 @@ django-cotton-examples/
 │       └── base.html
 ├── manage.py                # CLI Django
 ├── devbox.json              # Config Devbox
-├── package.json             # Dépendances pnpm (daisyui)
 ├── pyproject.toml           # Dépendances Python (uv)
 ├── livereload.conf          # Config auto-reload
 └── README.md
 ```
 
-## 🛠️ Technologies utilisées
+## Technologies utilisées
 
 **Backend :**
 
@@ -82,16 +81,15 @@ django-cotton-examples/
 
 **Frontend :**
 
-- **Tailwind CSS 4.1** - Framework CSS utility-first
-- **DaisyUI 5.0** - Composants UI pour Tailwind CSS
+- **Tailwind CSS 4.1** - Framework CSS utility-first (CLI build)
+- **DaisyUI 5** - Composants UI (CDN)
 
 **Outils de développement :**
 
 - **Devbox** - Environnement de développement reproductible
 - **UV** - Gestionnaire de dépendances Python ultra-rapide
-- **pnpm** - Gestionnaire de paquets Node.js rapide
 
-## 🔧 Scripts disponibles
+## Scripts disponibles
 
 - `devbox run dev:all` - Lance tout le stack de développement
 - `devbox run tw:watch` - Lance seulement la compilation Tailwind CSS
@@ -100,7 +98,7 @@ django-cotton-examples/
 - `devbox run migrate` - Effectue les migrations
 - `devbox run makemigrations` - Crée les migrations
 
-## 🐛 Dépannage
+## Dépannage
 
 Si vous rencontrez des problèmes, vérifiez que :
 

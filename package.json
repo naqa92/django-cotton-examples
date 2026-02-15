@@ -1,7 +1,0 @@
-{
-  "name": "django-cotton-examples",
-  "private": true,
-  "devDependencies": {
-    "daisyui": "^5.0.46"
-  }
-}
