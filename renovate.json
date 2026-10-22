@@ -1,0 +1,40 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", ":semanticCommits"],
+  "packageRules": [
+    {
+      "description": "Grouper les GitHub Actions",
+      "matchManagers": ["github-actions"],
+      "groupName": "github-actions"
+    },
+    {
+      "description": "Python — attendre 3j (patch)",
+      "matchManagers": ["pep621", "pip_requirements", "pip-compile"],
+      "matchUpdateTypes": ["patch"],
+      "minimumReleaseAge": "3 days"
+    },
+    {
+      "description": "Python — attendre 7j (minor/major)",
+      "matchManagers": ["pep621", "pip_requirements", "pip-compile"],
+      "matchUpdateTypes": ["minor", "major"],
+      "minimumReleaseAge": "7 days"
+    },
+    {
+      "description": "Devbox — désactivé (risque de casse nix)",
+      "matchManagers": ["devbox"],
+      "enabled": false
+    },
+    {
+      "description": "DHI — registre privé, pas d'auth Renovate",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["dhi.io/"],
+      "enabled": false
+    },
+    {
+      "description": "Images propres — version gérée par la CI",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["ghcr.io/naqa92"],
+      "enabled": false
+    }
+  ]
+}
