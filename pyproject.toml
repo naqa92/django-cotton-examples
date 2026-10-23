@@ -32,3 +32,6 @@ target-version = "py312"
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "djangocomponents.settings"
 python_files = ["tests.py", "test_*.py", "*_tests.py"]
+
+[tool.uv]
+exclude-newer = "3 days"
